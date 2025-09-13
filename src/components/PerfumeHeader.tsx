@@ -20,7 +20,7 @@ export default function PerfumeHeader({
     <header
       className={cn(
         "fixed inset-x-0 top-0 w-full  transition-all duration-300",
-        scrolled ? "bg-white text-black" : "bg-transparent text-white backdrop-blur",
+        scrolled ? "bg-white text-black opacity-100" : "bg-transparent text-white backdrop-blur opacity-0",
         className
       )}
       role="banner"
