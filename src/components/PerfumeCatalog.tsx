@@ -55,7 +55,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Floral",
     price: 185,
     imageUrl:
-      "https://images.unsplash.com/photo-1590156376025-6f19cb15f962?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "A luminous floral bouquet inspired by dawn over Tuscan hills. Notes of peony, freesia, and neroli drift over a whisper of white musk. Soft, radiant, and endlessly romantic.",
   },
@@ -65,7 +65,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Oriental",
     price: 210,
     imageUrl:
-      "https://images.unsplash.com/photo-1629198735660-54b50ed1a8e0?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "An opulent oriental that glows like midnight velvet. Saffron and cardamom ignite a heart of rose absolute, anchored by smoky vanilla and resinous amber. Intense, addictive, and hypnotic.",
   },
@@ -75,7 +75,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Citrus",
     price: 160,
     imageUrl:
-      "https://images.unsplash.com/photo-1615630637205-2f3cf40a8193?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "A sparkling plunge into sunlit seas. Zesty bergamot and Amalfi lemon lift aromatic basil and petitgrain, settling into a clean cedar dry-down. Brisk, modern, and effortlessly fresh.",
   },
@@ -85,7 +85,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Woody",
     price: 195,
     imageUrl:
-      "https://images.unsplash.com/photo-1563170351-be82bc888aa4?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "A dusky forest walk captured in scent. Black tea and vetiver weave through textured cedar and guaiac wood, warmed by a thread of tonka. Textural, earthy, and serene.",
   },
@@ -95,7 +95,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Floral",
     price: 205,
     imageUrl:
-      "https://images.unsplash.com/photo-1557177324-55d2a4d6c1fb?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "A timeless rose rendered with Italian restraint. Dewy rose and pink pepper meet tea leaves and cashmere woods. Elegant, balanced, and quietly luminous.",
   },
@@ -105,7 +105,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Oriental",
     price: 225,
     imageUrl:
-      "https://images.unsplash.com/photo-1563170351-0693122f5069?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "Amber gilded by Venetian gold. Labdanum and benzoin melt into spicy vanilla and toasted almond facets. Decadent warmth that lingers like candlelight.",
   },
@@ -115,7 +115,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Woody",
     price: 198,
     imageUrl:
-      "https://images.unsplash.com/photo-1604908176997-4319e4c1239f?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "A sculpted ode to dark woods. Incense curls around smoky birch and patchouli, with a mineral touch for modern clarity. Bold, architectural, and impeccably tailored.",
   },
@@ -125,7 +125,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Citrus",
     price: 175,
     imageUrl:
-      "https://images.unsplash.com/photo-1617727645387-7b78b1bd5333?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "Bitter orange zest softened by neroli blossom. A saline breeze and crisp vetiver create a clean, uplifting trail. Effervescent elegance for everyday light.",
   },
@@ -135,7 +135,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Aromatic",
     price: 170,
     imageUrl:
-      "https://images.unsplash.com/photo-1600711721867-fd3aba2a9de7?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "Sun-warmed herbs and market spices. Clary sage and rosemary mingle with pink pepper over dry woods. Lively, textured, and irresistibly wearable.",
   },
@@ -145,7 +145,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Gourmand",
     price: 215,
     imageUrl:
-      "https://images.unsplash.com/photo-1604514620609-980cf93202f2?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "A silk-smooth vanilla with couture poise. Madagascar vanilla absolute folds into almond milk and soft suede. Creamy, refined, and totally indulgent.",
   },
@@ -155,7 +155,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Aromatic",
     price: 165,
     imageUrl:
-      "https://images.unsplash.com/photo-1590156440369-5f5b8361bdb1?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "Rolling lavender fields warmed by Mediterranean light. Crushed lavender and bergamot rest on clean musk and pale woods. Airy, calming, and beautifully balanced.",
   },
@@ -165,7 +165,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     category: "Gourmand",
     price: 220,
     imageUrl:
-      "https://images.unsplash.com/photo-1547887538-a77fba9c2f36?q=80&w=1840&auto=format&fit=crop",
+      "./1.png",
     description:
       "Dark cacao wrapped in smoky velvet. Subtle spice, roasted hazelnut, and a shadow of oud create a magnetic, lingering depth. Seductive and unforgettable.",
   },
@@ -532,7 +532,7 @@ export default function PerfumeCatalog({
 
 function ProductCard({ product }: { product: Product }) {
   return (
-    <Card className="group relative overflow-hidden border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20">
+    <Card className="group relative overflow-hidden border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20 pt-0">
       <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg bg-black">
         <img
           src={product.imageUrl}
@@ -565,8 +565,8 @@ function ProductCard({ product }: { product: Product }) {
       </CardContent>
       <CardFooter className="flex items-center justify-between gap-3">
         <Link
-          href={`/products/${product.id}`}
-          className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-primary-foreground transition-colors hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          href="/product"
+          className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-primary-foreground transition-colors hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring whitespace-nowrap"
           aria-label={`Discover more about ${product.name}`}
         >
           <Package2 className="h-4 w-4" aria-hidden="true" />

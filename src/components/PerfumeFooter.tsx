@@ -18,7 +18,7 @@ export default function PerfumeFooter({
   brandName = "VellutoDeParfum",
   brandTagline = "Arte olfattiva italiana dal 1956",
   brandStatement =
-    "VellutoDeParfum incarna l'eleganza senza tempo e l'artigianalità italiana. Ogni fragranza è creata con materie prime rare e una cura meticolosa, offrendo un'esperienza sensoriale raffinata per chi cerca il lusso autentico.",
+  "VellutoDeParfum incarna l'eleganza senza tempo e l'artigianalità italiana. Ogni fragranza è creata con materie prime rare e una cura meticolosa, offrendo un'esperienza sensoriale raffinata per chi cerca il lusso autentico.",
 }: PerfumeFooterProps) {
   return (
     <footer
@@ -30,7 +30,7 @@ export default function PerfumeFooter({
       style={style}
       aria-labelledby="footer-heading"
     >
-      <div className="mx-auto w-full max-w-full px-4 sm:px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <h2 id="footer-heading" className="sr-only">
           Informazioni sul sito
         </h2>
@@ -38,8 +38,8 @@ export default function PerfumeFooter({
         {/* Brand block */}
         <section className="min-w-0">
           <div className="flex items-center gap-3">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-foreground/90 ring-1 ring-border">
-              <Crown aria-hidden="true" className="h-5 w-5 text-[var(--color-yellow)]" />
+            <span className="inline-flex  h-10 w-10 items-center justify-center rounded-full text-foreground/90 ring-1 ring-border bg-accent-foreground">
+              <img src={'./logo.svg'} />
             </span>
             <div className="min-w-0">
               <p className="text-base font-semibold tracking-wide">{brandName}</p>

@@ -75,28 +75,26 @@ const defaultProduct: Product = {
     { id: "size-100", label: "100 ml", ml: 100, price: 220 },
   ],
   images: [
-    "https://images.unsplash.com/photo-1514865991025-78c9d030a47e?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1596279899102-6f886d6b9bf8?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1600&auto=format&fit=crop",
+    "./1.png",
+    "./3.jpg",
   ],
   related: [
     {
       id: "oro-soave",
       name: "Oro Soave",
-      image: "https://images.unsplash.com/photo-1498843053639-170ff2122f35?q=80&w=1200&auto=format&fit=crop",
+      image: "./1.png",
       price: 175,
     },
     {
       id: "blu-notte",
       name: "Blu di Notte",
-      image: "https://images.unsplash.com/photo-1513015364185-6c5b19cd26fd?q=80&w=1200&auto=format&fit=crop",
+      image: "./1.png",
       price: 160,
     },
     {
       id: "ambra-velata",
       name: "Ambra Velata",
-      image: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=1200&auto=format&fit=crop",
+      image: "./1.png",
       price: 210,
     },
   ],
@@ -138,7 +136,7 @@ export default function ProductDetail({
         <div className="grid md:grid-cols-2 gap-8 md:gap-10">
           {/* Media gallery */}
           <div className="min-w-0">
-            <Card className="bg-secondary border border-border overflow-hidden">
+            <Card className="bg-secondary border border-border overflow-hidden py-0 gap-0">
               <div className="relative aspect-[4/5] sm:aspect-[5/6] w-full overflow-hidden">
                 <img
                   src={product.images[activeImageIdx]}
@@ -373,30 +371,6 @@ export default function ProductDetail({
           </Tabs>
         </div>
 
-        {/* Related products (no cart buttons) */}
-        <div className="mt-2">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl sm:text-2xl font-semibold">You may also like</h2>
-          </div>
-          <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {product.related.map((rp) => (
-              <Card key={rp.id} className="bg-secondary border border-border overflow-hidden group">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img src={rp.image} alt={rp.name} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                </div>
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="min-w-0">
-                      <div className="text-base font-medium truncate">{rp.name}</div>
-                      <div className="text-sm text-muted-foreground">{formatCurrency(rp.price)}</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -9,39 +9,41 @@ export interface PerfumeHeaderProps {
   ctaLabel?: string;
   ctaHref?: string;
   onCartClick?: () => void;
+  scrolled?: boolean;
 }
 
 export default function PerfumeHeader({
   className,
+  scrolled = false,
 }: PerfumeHeaderProps) {
   return (
     <header
       className={cn(
-        "w-full bg-background text-foreground border-b border-border/60",
+        "fixed inset-x-0 top-0 w-full  transition-all duration-300",
+        scrolled ? "bg-white text-black" : "bg-transparent text-white backdrop-blur",
         className
       )}
       role="banner"
     >
       <div className="container mx-auto w-full max-w-full">
-        <div className="flex items-center justify-between py-3 md:py-4 gap-3">
+        <div className="flex items-center justify-center py-3 md:py-3 gap-3">
           {/* Brand */}
           <Link
             href="/"
             aria-label="VellutoDeParfum home"
-            className="shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[--ring] rounded-[--radius]"
+            className="shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[--ring] rounded-[--radius] relative"
           >
             <div className="flex items-end gap-2">
               <span
-                className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-wide leading-none"
+                className={cn(
+                  "text-xl sm:text-2xl md:text-3xl font-semibold tracking-wide leading-none relative z-10 duration-200 border-none",
+                  scrolled ? "text-[black]" : "text-[white]",
+                  className
+                )}
                 style={{ letterSpacing: "0.02em" }}
               >
                 VellutoDeParfum
               </span>
-              <span
-                className="hidden sm:inline-block h-[6px] w-[6px] rounded-full translate-y-[-2px]"
-                aria-hidden="true"
-                style={{ backgroundColor: "var(--color-yellow)" }}
-              />
             </div>
           </Link>
 
