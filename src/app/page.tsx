@@ -29,12 +29,10 @@ export default function Page() {
         aria-label="Brand hero"
         className="relative overflow-hidden h-screen"
       >
-        <video
+        <img
           className="absolute inset-0 w-full h-full object-cover"
-          src="./2.mp4"
-          autoPlay
-          loop
-          muted
+          src="./t.jpg"
+          alt="Hero background"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#ffffff78] from-30% to-transparent to-70% blur-3xl" />
         <div className="absolute inset-0 pointer-events-none bg-black/20">

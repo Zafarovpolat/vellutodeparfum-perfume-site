@@ -1,14 +1,12 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import {
   FunnelPlus,
   Sparkle,
   ArrowDownWideNarrow,
   ArrowUpNarrowWide,
   ArrowDownNarrowWide,
-  Package2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,7 +14,6 @@ import {
   Card,
   CardHeader,
   CardContent,
-  CardFooter,
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
@@ -50,124 +47,308 @@ const DEFAULT_PAGE_SIZE = 8;
 
 const DEFAULT_PRODUCTS: Product[] = [
   {
-    id: "velluto-aurora",
-    name: "Aurora di Firenze",
+    id: "1",
+    name: "DIOR JADORE EDP",
     category: "Floral",
-    price: 185,
-    imageUrl:
-      "./1.png",
-    description:
-      "A luminous floral bouquet inspired by dawn over Tuscan hills. Notes of peony, freesia, and neroli drift over a whisper of white musk. Soft, radiant, and endlessly romantic.",
+    price: 105,
+    imageUrl: "./list/1.png",
+    description: "A captivating floral fragrance with notes of jasmine, rose, and ylang-ylang, evoking elegance and sensuality.",
   },
   {
-    id: "velluto-notte-nera",
-    name: "Notte Nera",
+    id: "2",
+    name: "GUCCI FLORA GORGEOUS MAGNOLIA EDP",
+    category: "Floral",
+    price: 115,
+    imageUrl: "./list/2.png",
+    description: "A vibrant floral scent featuring magnolia, peony, and patchouli for a fresh and romantic allure.",
+  },
+  {
+    id: "3",
+    name: "DIOR MISS DIOR ROSE N'ROSES EDT",
+    category: "Floral",
+    price: 120,
+    imageUrl: "./list/3.png",
+    description: "A delicate rose bouquet with hints of rosewood and musk, perfect for everyday elegance.",
+  },
+  {
+    id: "4",
+    name: "GUCCI GUILTY ABSOLUTE POUR FEMME EDP",
     category: "Oriental",
-    price: 210,
-    imageUrl:
-      "./1.png",
-    description:
-      "An opulent oriental that glows like midnight velvet. Saffron and cardamom ignite a heart of rose absolute, anchored by smoky vanilla and resinous amber. Intense, addictive, and hypnotic.",
+    price: 90,
+    imageUrl: "./list/4.png",
+    description: "An intense oriental fragrance with pink pepper, lilac, and patchouli for a bold, seductive presence.",
   },
   {
-    id: "velluto-liguria-citrus",
-    name: "Ligurian Coast",
-    category: "Citrus",
+    id: "5",
+    name: "GUCCI GUILTY POUR HOMME EDT",
+    category: "Aromatic",
+    price: 85,
+    imageUrl: "./list/5.png",
+    description: "A fresh aromatic scent with pink pepper, lilac, and leather, ideal for the modern man.",
+  },
+  {
+    id: "6",
+    name: "YSL BLACK OPIUM EDP OVER RED",
+    category: "Oriental",
+    price: 105,
+    imageUrl: "./list/6.png",
+    description: "A smoky oriental with coffee, vanilla, and white flowers, exuding mystery and allure.",
+  },
+  {
+    id: "7",
+    name: "YSL BLACK OPIUM EDP",
+    category: "Oriental",
+    price: 95,
+    imageUrl: "./list/7.png",
+    description: "An addictive oriental blend of coffee, vanilla, and jasmine for a captivating, sensual experience.",
+  },
+  {
+    id: "8",
+    name: "TF FUCKING FABULOUS EDP",
+    category: "Gourmand",
+    price: 145,
+    imageUrl: "./list/8.png",
+    description: "A playful gourmand fragrance with raspberry, saffron, and patchouli, celebrating boldness and fun.",
+  },
+  {
+    id: "9",
+    name: "TF BITTER PEACH EDP",
+    category: "Gourmand",
+    price: 150,
+    imageUrl: "./list/9.png",
+    description: "A fruity gourmand with bitter peach, almond, and vanilla, offering a sweet yet edgy twist.",
+  },
+  {
+    id: "10",
+    name: "TF TOBACCO VANILLE EDP",
+    category: "Oriental",
     price: 160,
-    imageUrl:
-      "./1.png",
-    description:
-      "A sparkling plunge into sunlit seas. Zesty bergamot and Amalfi lemon lift aromatic basil and petitgrain, settling into a clean cedar dry-down. Brisk, modern, and effortlessly fresh.",
+    imageUrl: "./list/10.png",
+    description: "A rich oriental scent blending tobacco, tonka bean, and vanilla for a warm, sophisticated vibe.",
   },
   {
-    id: "velluto-selva-di-ombre",
-    name: "Selva di Ombre",
-    category: "Woody",
-    price: 195,
-    imageUrl:
-      "./1.png",
-    description:
-      "A dusky forest walk captured in scent. Black tea and vetiver weave through textured cedar and guaiac wood, warmed by a thread of tonka. Textural, earthy, and serene.",
-  },
-  {
-    id: "velluto-rosa-vecchia",
-    name: "Rosa Vecchia",
-    category: "Floral",
-    price: 205,
-    imageUrl:
-      "./1.png",
-    description:
-      "A timeless rose rendered with Italian restraint. Dewy rose and pink pepper meet tea leaves and cashmere woods. Elegant, balanced, and quietly luminous.",
-  },
-  {
-    id: "velluto-ambra-venezia",
-    name: "Ambra di Venezia",
-    category: "Oriental",
-    price: 225,
-    imageUrl:
-      "./1.png",
-    description:
-      "Amber gilded by Venetian gold. Labdanum and benzoin melt into spicy vanilla and toasted almond facets. Decadent warmth that lingers like candlelight.",
-  },
-  {
-    id: "velluto-nero-legno",
-    name: "Legno Nero",
-    category: "Woody",
-    price: 198,
-    imageUrl:
-      "./1.png",
-    description:
-      "A sculpted ode to dark woods. Incense curls around smoky birch and patchouli, with a mineral touch for modern clarity. Bold, architectural, and impeccably tailored.",
-  },
-  {
-    id: "velluto-arancia-amara",
-    name: "Arancia Amara",
+    id: "11",
+    name: "GIORGIO ARMANI ACQUA DI GIO EDT",
     category: "Citrus",
-    price: 175,
-    imageUrl:
-      "./1.png",
-    description:
-      "Bitter orange zest softened by neroli blossom. A saline breeze and crisp vetiver create a clean, uplifting trail. Effervescent elegance for everyday light.",
+    price: 95,
+    imageUrl: "./list/11.png",
+    description: "A fresh citrus aquatic with sea notes, rosemary, and patchouli, evoking coastal serenity.",
   },
   {
-    id: "velluto-spezie-di-mercato",
-    name: "Spezie di Mercato",
+    id: "12",
+    name: "EMPORIO ARMANI STRONGER WITH YOU SANDALWOOD",
+    category: "Woody",
+    price: 115,
+    imageUrl: "./list/12.png",
+    description: "A woody fragrance with sandalwood, vetiver, and tonka bean, radiating strength and warmth.",
+  },
+  {
+    id: "13",
+    name: "EMPORIO ARMANI STRONGER WITH YOU TOBACCO",
+    category: "Oriental",
+    price: 120,
+    imageUrl: "./list/13.png",
+    description: "An oriental tobacco scent with spicy notes and amber, perfect for confident personalities.",
+  },
+  {
+    id: "14",
+    name: "EMPORIO ARMANI STRONGER WITH YOU PARFUM",
+    category: "Oriental",
+    price: 110,
+    imageUrl: "./list/14.png",
+    description: "A versatile oriental with leather, spice, and ambergris, embodying timeless allure.",
+  },
+  {
+    id: "15",
+    name: "EMPORIO ARMANI STRONGER WITH YOU AMBER EDP",
+    category: "Oriental",
+    price: 115,
+    imageUrl: "./list/15.png",
+    description: "An amber-rich oriental with warm spices and resins, offering depth and sophistication.",
+  },
+  {
+    id: "16",
+    name: "DIOR SAUVAGE (ELIXIR)",
+    category: "Woody",
+    price: 130,
+    imageUrl: "./list/16.png",
+    description: "A woody aromatic with pepper, lavender, and ambroxan, capturing wild freedom.",
+  },
+  {
+    id: "17",
+    name: "DIOR SAUVAGE (EDP)",
+    category: "Woody",
+    price: 105,
+    imageUrl: "./list/17.png",
+    description: "A fresh woody scent with bergamot, pepper, and vetiver, for the adventurous spirit.",
+  },
+  {
+    id: "18",
+    name: "VERSACE EROS EDP",
+    category: "Oriental",
+    price: 70,
+    imageUrl: "./list/18.png",
+    description: "An oriental fougère with mint, geranium, and tonka bean, symbolizing passion and energy.",
+  },
+  {
+    id: "19",
+    name: "VERSACE EROS PARFUM",
+    category: "Oriental",
+    price: 75,
+    imageUrl: "./list/19.png",
+    description: "A deeper oriental with amber, vanilla, and wood, enhancing the essence of desire.",
+  },
+  {
+    id: "20",
+    name: "YSL MON PARIS EDP",
+    category: "Floral",
+    price: 80,
+    imageUrl: "./list/20.png",
+    description: "A floral chypre with jasmine, rose, and patchouli, celebrating Parisian elegance.",
+  },
+  {
+    id: "21",
+    name: "RALPH LAUREN POLO BLUE",
+    category: "Citrus",
+    price: 65,
+    imageUrl: "./list/21.png",
+    description: "A fresh citrus aquatic with melon, cucumber, and musk, embodying classic American style.",
+  },
+  {
+    id: "22",
+    name: "CREED CENTAURUS",
+    category: "Woody",
+    price: 140,
+    imageUrl: "./list/22.png",
+    description: "A woody oriental with ginger, apple, and sandalwood, for the discerning gentleman.",
+  },
+  {
+    id: "23",
+    name: "INITIO OUD FOR GREATNESS",
+    category: "Woody",
+    price: 160,
+    imageUrl: "./list/23.png",
+    description: "A luxurious woody oud with saffron and rose, representing power and ambition.",
+  },
+  {
+    id: "24",
+    name: "CREED SPRING FLOWER",
+    category: "Floral",
+    price: 115,
+    imageUrl: "./list/24.png",
+    description: "A fresh floral with lily of the valley, rose, and musk, blooming with springtime joy.",
+  },
+  {
+    id: "25",
+    name: "LE LABO ANOTHER 13",
+    category: "Woody",
+    price: 115,
+    imageUrl: "./list/25.png",
+    description: "A woody floral with tuberose, orange blossom, and patchouli, uniquely personal.",
+  },
+  {
+    id: "26",
+    name: "TF BLACK ORCHID EDP",
+    category: "Floral",
+    price: 135,
+    imageUrl: "./list/26.png",
+    description: "A dark floral with black currant, orchid, and vanilla, exuding mystery and seduction.",
+  },
+  {
+    id: "27",
+    name: "VERSACE EROS ENERGY POUR HOMME EDP",
     category: "Aromatic",
-    price: 170,
-    imageUrl:
-      "./1.png",
-    description:
-      "Sun-warmed herbs and market spices. Clary sage and rosemary mingle with pink pepper over dry woods. Lively, textured, and irresistibly wearable.",
+    price: 65,
+    imageUrl: "./list/27.png",
+    description: "An aromatic fougère with grapefruit, geranium, and tonka bean, boosting vitality.",
   },
   {
-    id: "velluto-vaniglia-setosa",
-    name: "Vaniglia Setosa",
+    id: "28",
+    name: "TF ELECTRIC CHERRY EDP",
     category: "Gourmand",
-    price: 215,
-    imageUrl:
-      "./1.png",
-    description:
-      "A silk-smooth vanilla with couture poise. Madagascar vanilla absolute folds into almond milk and soft suede. Creamy, refined, and totally indulgent.",
+    price: 150,
+    imageUrl: "./list/28.png",
+    description: "A fruity gourmand with cherry, saffron, and amber, sparking electric excitement.",
   },
   {
-    id: "velluto-lavanda-di-colline",
-    name: "Lavanda di Colline",
-    category: "Aromatic",
-    price: 165,
-    imageUrl:
-      "./1.png",
-    description:
-      "Rolling lavender fields warmed by Mediterranean light. Crushed lavender and bergamot rest on clean musk and pale woods. Airy, calming, and beautifully balanced.",
-  },
-  {
-    id: "velluto-cacao-ombra",
-    name: "Cacao Ombra",
+    id: "29",
+    name: "TF LOST CHERRY EDP",
     category: "Gourmand",
-    price: 220,
-    imageUrl:
-      "./1.png",
-    description:
-      "Dark cacao wrapped in smoky velvet. Subtle spice, roasted hazelnut, and a shadow of oud create a magnetic, lingering depth. Seductive and unforgettable.",
+    price: 150,
+    imageUrl: "./list/29.png",
+    description: "A sweet gourmand with cherry, almond, and tonka bean, rediscovering lost pleasures.",
+  },
+  {
+    id: "30",
+    name: "TF CHERRY SMOKE EDP",
+    category: "Gourmand",
+    price: 150,
+    imageUrl: "./list/30.png",
+    description: "A smoky gourmand with cherry, incense, and leather, blending sweetness with edge.",
+  },
+  {
+    id: "31",
+    name: "CARTIER LA PANTHERE PARFUM",
+    category: "Floral",
+    price: 95,
+    imageUrl: "./list/31.png",
+    description: "A floral oriental with rose, jasmine, and amber, embodying feline grace and power.",
+  },
+  {
+    id: "32",
+    name: "CARTIER LA PANTHERE EDT",
+    category: "Floral",
+    price: 90,
+    imageUrl: "./list/32.png",
+    description: "A fresh floral with mandarin, rose, and musk, capturing playful elegance.",
+  },
+  {
+    id: "33",
+    name: "MFK BACCARAT ROUGE 540 PARFUM (WHITE)",
+    category: "Oriental",
+    price: 110,
+    imageUrl: "./list/33.png",
+    description: "An oriental floral with rose, incense, and saffron, in a luxurious white edition.",
+  },
+  {
+    id: "34",
+    name: "KILIAN PEARL OUD EDP",
+    category: "Woody",
+    price: 120,
+    imageUrl: "./list/34.png",
+    description: "A precious woody oud with rose, saffron, and ambergris, radiating opulence.",
+  },
+  {
+    id: "35",
+    name: "LE LABO THE MATCHA 26",
+    category: "Woody",
+    price: 100,
+    imageUrl: "./list/35.png",
+    description: "A green woody scent with matcha, geranium, and sandalwood, fresh and grounding.",
+  },
+  {
+    id: "36",
+    name: "LE LABO MUSC 25",
+    category: "Woody",
+    price: 100,
+    imageUrl: "./list/36.png",
+    description: "A musky woody with tuberose, saffron, and tonka bean, warm and enveloping.",
+  },
+  {
+    id: "37",
+    name: "LE LABO TUBEREUSE 40",
+    category: "Floral",
+    price: 100,
+    imageUrl: "./list/37.png",
+    description: "A floral tuberose with neroli, sandalwood, and musk, bold and intoxicating.",
+  },
+  {
+    id: "38",
+    name: "LE LABO MYRRHE 55",
+    category: "Woody",
+    price: 100,
+    imageUrl: "./list/38.png",
+    description: "A resinous woody with myrrh, opoponax, and labdanum, ancient and mystical.",
   },
 ];
 
@@ -261,11 +442,11 @@ export default function PerfumeCatalog({
     setPage(1);
   }
 
-  function formatPrice(eur: number) {
+  function formatPrice(usd: number) {
     try {
-      return new Intl.NumberFormat(undefined, { style: "currency", currency: "EUR" }).format(eur);
+      return new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(usd);
     } catch {
-      return `€${eur.toFixed(2)}`;
+      return `$${usd.toFixed(2)}`;
     }
   }
 
@@ -532,8 +713,8 @@ export default function PerfumeCatalog({
 
 function ProductCard({ product }: { product: Product }) {
   return (
-    <Card className="group relative overflow-hidden border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20 pt-0">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg bg-black">
+    <Card className="group relative overflow-hidden border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20 pt-0 h-full flex flex-col">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg">
         <img
           src={product.imageUrl}
           alt={product.name}
@@ -542,38 +723,27 @@ function ProductCard({ product }: { product: Product }) {
         {/* Subtle vignette */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
       </div>
-      <CardHeader className="space-y-2">
-        <div className="flex items-center justify-between gap-3">
-          <CardTitle className="text-base sm:text-lg md:text-xl leading-snug">
-            <span className="block truncate">{product.name}</span>
+      <CardHeader className="space-y-2 flex-grow">
+        <div className="flex items-start justify-between gap-3">
+          <CardTitle className="text-base sm:text-lg md:text-xl leading-snug break-words hyphens-auto">
+            {product.name}
           </CardTitle>
           <Badge
             variant="secondary"
-            className="bg-secondary text-secondary-foreground shrink-0"
+            className="bg-secondary text-secondary-foreground shrink-0 mt-1"
             aria-label={`Category: ${product.category}`}
           >
             {product.category}
           </Badge>
         </div>
-        <CardDescription className="text-sm text-muted-foreground break-words line-clamp-3">
+        <CardDescription className="text-sm text-muted-foreground break-words line-clamp-3 leading-relaxed">
           {product.description}
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex items-center justify-between">
+      <CardContent className="flex items-center justify-between mt-auto">
         <div className="text-foreground font-medium">{formatPriceLocal(product.price)}</div>
         <div className="text-sm text-muted-foreground">50 ml</div>
       </CardContent>
-      <CardFooter className="flex items-center justify-between gap-3">
-        <Link
-          href="/product"
-          className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-primary-foreground transition-colors hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring whitespace-nowrap"
-          aria-label={`Discover more about ${product.name}`}
-        >
-          <Package2 className="h-4 w-4" aria-hidden="true" />
-          <span>Discover More</span>
-        </Link>
-        <div className="text-xs text-muted-foreground">Ships in 2–4 days</div>
-      </CardFooter>
     </Card>
   );
 }
@@ -648,10 +818,10 @@ function formatPriceLocal(price: number): string {
   try {
     return new Intl.NumberFormat(undefined, {
       style: "currency",
-      currency: "EUR",
+      currency: "USD",
       maximumFractionDigits: 0,
     }).format(price);
   } catch {
-    return `€${price}`;
+    return `$${price}`;
   }
 }

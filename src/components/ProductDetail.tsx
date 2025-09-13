@@ -57,45 +57,46 @@ export interface ProductDetailProps {
 }
 
 const defaultProduct: Product = {
-  id: "velluto-notturno",
-  name: "Velluto Notturno",
+  id: "10",
+  name: "TF TOBACCO VANILLE EDP",
   subtitle: "Eau de Parfum",
   description:
-    "A nocturnal velvet embrace. Velluto Notturno unfolds with luminous citrus before revealing a heart of smoky florals and an intimate, resinous trail.",
+    "A rich oriental scent blending tobacco, tonka bean, and vanilla for a warm, sophisticated vibe. This luxurious fragrance captures the essence of indulgence and mystery.",
   story:
-    "Inspired by a midnight stroll through a rain-kissed Venetian calle, Velluto Notturno captures the hush between footsteps and starlight. Gold leaf flickers under lantern glow as whispers of bergamot and incense drift through ancient stone. The fragrance is an ode to chiaroscuro—where shadows soften, secrets blossom, and the night itself becomes silk.",
+    "Inspired by the smoky allure of a hidden speakeasy in 1920s Paris, TF Tobacco Vanille weaves together the warmth of aged tobacco leaves with the creamy sweetness of Madagascar vanilla. Each note tells a story of forbidden pleasures and elegant decadence, where the rich aroma of pipe tobacco mingles with the silky smoothness of tonka bean, creating an unforgettable olfactory experience that lingers like a cherished secret.",
   scent: {
-    top: ["Calabrian Bergamot", "Black Pepper", "Pink Grapefruit Zest"],
-    heart: ["Smoked Jasmine", "Iris Concrete", "Black Tea"],
-    base: ["Amber Resin", "Sandalwood", "Patchouli Coeur"],
+    top: ["Spicy Pepper", "Tobacco Leaf", "Bergamot"],
+    heart: ["Tonka Bean", "Vanilla Orchid", "Cocoa"],
+    base: ["Dark Tobacco", "Amber", "Patchouli"],
   },
   sizes: [
-    { id: "size-30", label: "30 ml", ml: 30, price: 95 },
-    { id: "size-50", label: "50 ml", ml: 50, price: 145 },
-    { id: "size-100", label: "100 ml", ml: 100, price: 220 },
+    { id: "size-30", label: "30 ml", ml: 30, price: 120 },
+    { id: "size-50", label: "50 ml", ml: 50, price: 160 },
+    { id: "size-100", label: "100 ml", ml: 100, price: 280 },
   ],
   images: [
-    "./1.png",
-    "./3.jpg",
+    "./list/10.png",
+    "./list/10-2.png",
+    "./list/10-3.png",
   ],
   related: [
     {
-      id: "oro-soave",
-      name: "Oro Soave",
-      image: "./1.png",
-      price: 175,
-    },
-    {
-      id: "blu-notte",
-      name: "Blu di Notte",
-      image: "./1.png",
+      id: "23",
+      name: "INITIO OUD FOR GREATNESS",
+      image: "./list/23.png",
       price: 160,
     },
     {
-      id: "ambra-velata",
-      name: "Ambra Velata",
-      image: "./1.png",
-      price: 210,
+      id: "22",
+      name: "CREED CENTAURUS",
+      image: "./list/22.png",
+      price: 140,
+    },
+    {
+      id: "8",
+      name: "TF FUCKING FABULOUS EDP",
+      image: "./list/8.png",
+      price: 145,
     },
   ],
 };
