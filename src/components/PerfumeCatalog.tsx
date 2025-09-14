@@ -683,14 +683,14 @@ export default function PerfumeCatalog({
 function ProductCard({ product }: { product: Product }) {
   return (
     <Card className="group relative overflow-hidden border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20 pt-0 h-full flex flex-col">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg py-1">
         <img
           src={product.imageUrl}
           alt={product.name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
         />
         {/* Subtle vignette */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-black/10" />
       </div>
       <CardHeader className="space-y-2 flex-grow">
         <div className="flex items-start justify-between gap-3">
@@ -710,7 +710,6 @@ function ProductCard({ product }: { product: Product }) {
         </CardDescription>
       </CardHeader>
       <CardContent className="flex items-center justify-between mt-auto">
-        <div className="text-foreground font-medium">{formatPriceLocal(product.price)}</div>
         <div className="text-sm text-muted-foreground">50 ml</div>
       </CardContent>
     </Card>

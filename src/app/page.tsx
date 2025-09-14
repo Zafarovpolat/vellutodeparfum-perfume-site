@@ -29,11 +29,14 @@ export default function Page() {
         aria-label="Brand hero"
         className="relative overflow-hidden h-screen"
       >
-        <img
-          className="absolute inset-0 w-full h-full object-cover"
-          src="./t.jpg"
-          alt="Hero background"
-        />
+        <picture className="absolute inset-0 w-full h-full">
+          <source media="(max-width: 767px)" srcSet="./s.jpg" />
+          <img
+            className="w-full h-full object-cover md:object-center object-left"
+            src="./t.jpg"
+            alt="Hero background"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-br from-[#ffffff78] from-30% to-transparent to-70% blur-3xl" />
         <div className="absolute inset-0 pointer-events-none bg-black/20">
           {/* <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[var(--color-yellow)]/10 blur-3xl" /> */}
