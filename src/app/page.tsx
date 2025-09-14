@@ -37,11 +37,7 @@ export default function Page() {
             alt="Hero background"
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-br from-[#ffffff78] from-30% to-transparent to-70% blur-3xl" />
-        <div className="absolute inset-0 pointer-events-none bg-black/20">
-          {/* <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[var(--color-yellow)]/10 blur-3xl" /> */}
-          {/* <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-[var(--color-yellow)]/10 blur-3xl" /> */}
-        </div>
+
         <div className="container h-full flex items-center mx-auto px-4 sm:px-6 py-12 sm:py-20 relative">
           <div className="max-w-3xl">
             <p className="text-[var(--color-yellow)]/90 tracking-wide text-xs uppercase">
