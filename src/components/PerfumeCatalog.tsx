@@ -363,6 +363,8 @@ export default function PerfumeCatalog({
   defaultSelectedCategories = [],
   defaultSort = "featured",
 }: PerfumeCatalogProps) {
+  const catalogRef = React.useRef<HTMLElement>(null);
+
   const dataset = React.useMemo<Product[]>(
     () => (products && products.length > 0 ? products : DEFAULT_PRODUCTS),
     [products]
@@ -464,6 +466,12 @@ export default function PerfumeCatalog({
     setPage(1);
   }
 
+  function scrollToTop() {
+    if (catalogRef.current) {
+      catalogRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   function formatPrice(usd: number) {
     try {
       return new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(usd);
@@ -474,6 +482,7 @@ export default function PerfumeCatalog({
 
   return (
     <section
+      ref={catalogRef}
       className={["w-full max-w-full", className].filter(Boolean).join(" ")}
       style={style}
       aria-label="Perfume catalog"
@@ -657,7 +666,10 @@ export default function PerfumeCatalog({
                     variant="secondary"
                     size="sm"
                     className="px-3"
-                    onClick={() => setPage((p) => Math.max(1, p - 1))}
+                    onClick={() => {
+                      setPage((p) => Math.max(1, p - 1));
+                      scrollToTop();
+                    }}
                     disabled={pageSafe === 1}
                     aria-label="Previous page"
                   >
@@ -674,7 +686,10 @@ export default function PerfumeCatalog({
                         variant={pNum === pageSafe ? "default" : "secondary"}
                         size="sm"
                         className={pNum === pageSafe ? "" : "bg-secondary"}
-                        onClick={() => setPage(pNum)}
+                        onClick={() => {
+                          setPage(pNum);
+                          scrollToTop();
+                        }}
                         aria-current={pNum === pageSafe ? "page" : undefined}
                         aria-label={`Go to page ${pNum}`}
                       >
@@ -686,7 +701,10 @@ export default function PerfumeCatalog({
                     variant="secondary"
                     size="sm"
                     className="px-3"
-                    onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                    onClick={() => {
+                      setPage((p) => Math.min(totalPages, p + 1));
+                      scrollToTop();
+                    }}
                     disabled={pageSafe === totalPages}
                     aria-label="Next page"
                   >
