@@ -456,37 +456,6 @@ export default function PerfumeCatalog({
       style={style}
       aria-label="Perfume catalog"
     >
-      {/* Hero */}
-      <div className="relative overflow-hidden rounded-lg bg-card">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-primary/5" />
-          <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[var(--color-yellow)]/10 blur-3xl" />
-        </div>
-        <div className="relative px-6 py-10 sm:px-8 sm:py-14">
-          <div className="flex items-start gap-3">
-            <div className="rounded-md bg-secondary text-secondary-foreground p-2">
-              <Sparkle className="h-5 w-5" aria-hidden="true" />
-            </div>
-            <div className="min-w-0">
-              <h1 className="text-foreground text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
-                VellutoDeParfum Collection
-              </h1>
-              <p className="mt-2 text-muted-foreground max-w-3xl">
-                Crafted in Italy with rare ingredients and quiet precision. Explore our curated catalog of modern classics—each composition a study in texture, light, and unforgettable trail.
-              </p>
-              <div className="mt-3 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
-                  {dataset.length} perfumes
-                </Badge>
-                <span aria-hidden="true" className="hidden sm:inline">
-                  ·
-                </span>
-                <span className="hidden sm:inline">Complimentary samples with every order</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Controls */}
       <div className="mt-8 rounded-lg border bg-secondary/50 p-4 sm:p-5">

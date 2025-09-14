@@ -65,29 +65,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Featured product spotlight */}
-      <section
-        aria-label="Featured composition"
-        className="container mx-auto px-4 sm:px-6 py-10 sm:py-14"
-      >
-        <div className="mb-6 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-semibold">Featured</h2>
-            <p className="text-sm text-muted-foreground">
-              A nocturnal velvet embrace, meticulously balanced.
-            </p>
-          </div>
-        </div>
-        {React.createElement(
-          require("@/components/ProductDetail").default,
-          {
-            className: "rounded-lg border border-border bg-card p-5 sm:p-6",
-          }
-        )}
-      </section>
-
-      <Separator className="container mx-auto my-6 sm:my-10" />
-
       {/* Catalog */}
       <section
         id="catalog"
