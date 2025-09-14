@@ -47,9 +47,7 @@ export default function Page() {
               VellutoDeParfum
             </h1>
             <p className="mt-4 text-base sm:text-lg text-primary-foreground">
-              A modern house of haute parfumerie. Crafted in Italy with rare
-              ingredients and quiet precision. Discover a catalog of refined,
-              enduring compositions with gold-kissed accents and velvet depth.
+              An online boutique of haute parfumerie. Crafted in Italy with rare ingredients and quiet precision. Explore a wide selection of refined, enduring compositions with gold-kissed accents and velvet depth.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a
