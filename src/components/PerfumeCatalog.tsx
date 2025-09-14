@@ -422,6 +422,28 @@ export default function PerfumeCatalog({
     setPage(1);
   }, [query, selectedCategories, sort]);
 
+  // Preserve scroll position on mobile Safari when filters change
+  React.useEffect(() => {
+    const handleFilterChange = () => {
+      // Store current scroll position before re-render
+      const scrollY = window.scrollY;
+      const scrollX = window.scrollX;
+
+      // Use requestAnimationFrame to restore scroll after render
+      requestAnimationFrame(() => {
+        window.scrollTo(scrollX, scrollY);
+      });
+    };
+
+    // Only apply on mobile devices and Safari
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (isMobile && isSafari) {
+      handleFilterChange();
+    }
+  }, [query, selectedCategories, sort]);
+
   const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const pageSafe = Math.min(page, totalPages);
   const start = (pageSafe - 1) * pageSize;
