@@ -424,27 +424,7 @@ export default function PerfumeCatalog({
     setPage(1);
   }, [query, selectedCategories, sort]);
 
-  // Preserve scroll position on mobile Safari when filters change
-  React.useEffect(() => {
-    const handleFilterChange = () => {
-      // Store current scroll position before re-render
-      const scrollY = window.scrollY;
-      const scrollX = window.scrollX;
 
-      // Use requestAnimationFrame to restore scroll after render
-      requestAnimationFrame(() => {
-        window.scrollTo(scrollX, scrollY);
-      });
-    };
-
-    // Only apply on mobile devices and Safari
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-    if (isMobile && isSafari) {
-      handleFilterChange();
-    }
-  }, [query, selectedCategories, sort]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const pageSafe = Math.min(page, totalPages);
@@ -457,6 +437,9 @@ export default function PerfumeCatalog({
       const next = has ? prev.filter((c) => c !== cat) : [...prev, cat];
       return next;
     });
+
+    // Прокрутка к каталогу после изменения фильтра
+    setTimeout(() => scrollToCatalogTop(), 300); // Даем время на ре-рендер
   }
 
   function clearAll() {
@@ -466,9 +449,84 @@ export default function PerfumeCatalog({
     setPage(1);
   }
 
+  // Добавьте обработчик для сортировки:
+  function handleSortChange(newSort: SortKey) {
+    setSort(newSort);
+    setTimeout(() => scrollToCatalogTop(), 300);
+  }
+
+  // Замените существующую функцию scrollToTop и связанные useEffect
+
+  // Добавьте эти функции в ваш компонент PerfumeCatalog
   function scrollToTop() {
     if (catalogRef.current) {
-      catalogRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Для мобильного Safari используем более надежный подход
+      const isMobileSafari = /iPhone|iPad|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+
+      if (isMobileSafari) {
+        // Для мобильного Safari используем множественные попытки скролла
+        const scrollToElement = () => {
+          catalogRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest'
+          });
+        };
+
+        // Немедленный скролл
+        scrollToElement();
+
+        // Дублируем через requestAnimationFrame
+        requestAnimationFrame(() => {
+          scrollToElement();
+        });
+
+        // Дополнительная попытка через небольшую задержку
+        setTimeout(() => {
+          scrollToElement();
+        }, 100);
+
+      } else {
+        // Для других браузеров
+        catalogRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
+      }
+    }
+  }
+
+  // Альтернативная функция для более точного скролла
+  function scrollToCatalogTop() {
+    const isMobileSafari = /iPhone|iPad|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+
+    if (catalogRef.current) {
+      const rect = catalogRef.current.getBoundingClientRect();
+      const scrollTop = window.pageYOffset + rect.top - 20; // 20px отступ сверху
+
+      if (isMobileSafari) {
+        // Для Safari на iOS используем window.scrollTo с множественными попытками
+        const performScroll = () => {
+          window.scrollTo({
+            top: scrollTop,
+            behavior: 'smooth'
+          });
+        };
+
+        performScroll();
+
+        requestAnimationFrame(performScroll);
+
+        setTimeout(performScroll, 50);
+        setTimeout(performScroll, 150);
+
+      } else {
+        window.scrollTo({
+          top: scrollTop,
+          behavior: 'smooth'
+        });
+      }
     }
   }
 
@@ -523,7 +581,7 @@ export default function PerfumeCatalog({
               >
                 <button
                   type="button"
-                  onClick={() => setSort("featured")}
+                  onClick={() => handleSortChange("featured")}
                   aria-pressed={sort === "featured"}
                   className={[
                     "px-3 py-1.5 text-sm rounded",
@@ -536,7 +594,7 @@ export default function PerfumeCatalog({
                 </button>
                 <button
                   type="button"
-                  onClick={() => setSort("price-asc")}
+                  onClick={() => handleSortChange("price-asc")}
                   aria-pressed={sort === "price-asc"}
                   className={[
                     "px-3 py-1.5 text-sm rounded inline-flex items-center gap-1",
@@ -550,7 +608,7 @@ export default function PerfumeCatalog({
                 </button>
                 <button
                   type="button"
-                  onClick={() => setSort("price-desc")}
+                  onClick={() => handleSortChange("price-desc")}
                   aria-pressed={sort === "price-desc"}
                   className={[
                     "px-3 py-1.5 text-sm rounded inline-flex items-center gap-1",
@@ -668,7 +726,8 @@ export default function PerfumeCatalog({
                     className="px-3"
                     onClick={() => {
                       setPage((p) => Math.max(1, p - 1));
-                      scrollToTop();
+                      // Используйте setTimeout для Safari
+                      setTimeout(() => scrollToCatalogTop(), 10);
                     }}
                     disabled={pageSafe === 1}
                     aria-label="Previous page"
@@ -688,7 +747,7 @@ export default function PerfumeCatalog({
                         className={pNum === pageSafe ? "" : "bg-secondary"}
                         onClick={() => {
                           setPage(pNum);
-                          scrollToTop();
+                          setTimeout(() => scrollToCatalogTop(), 10);
                         }}
                         aria-current={pNum === pageSafe ? "page" : undefined}
                         aria-label={`Go to page ${pNum}`}
@@ -703,7 +762,7 @@ export default function PerfumeCatalog({
                     className="px-3"
                     onClick={() => {
                       setPage((p) => Math.min(totalPages, p + 1));
-                      scrollToTop();
+                      setTimeout(() => scrollToCatalogTop(), 10);
                     }}
                     disabled={pageSafe === totalPages}
                     aria-label="Next page"
