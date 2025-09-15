@@ -50,14 +50,17 @@
     from {
       height: 0;
     }
+
     to {
       height: var(--radix-accordion-content-height);
     }
   }
+
   @keyframes accordion-up {
     from {
       height: var(--radix-accordion-content-height);
     }
+
     to {
       height: 0;
     }
@@ -68,7 +71,8 @@
 
   --color-yellow: #dcae30;
 
-  --font-proxima-nova: "Proxima Nova", sans-serif;
+  --font-proxima-nova: "Proxima Nova",
+  sans-serif;
 }
 
 /*
@@ -80,6 +84,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -162,7 +167,8 @@
   }
 
   h1 {
-    font-size: 2.5rem; /* Example: Adjust as per image */
+    font-size: 2.5rem;
+    /* Example: Adjust as per image */
     font-weight: 700;
     line-height: 1.2;
   }
@@ -198,4 +204,17 @@
 /* Hide Next.js error overlay portal */
 nextjs-portal {
   display: none !important;
+}
+
+/* Добавьте в ваши глобальные стили */
+html {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  html {
+    scroll-behavior: auto;
+    /* Отключаем CSS scroll-behavior на iOS для JS контроля */
+  }
 }
