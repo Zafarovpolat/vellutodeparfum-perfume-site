@@ -16,9 +16,9 @@ export default function PerfumeFooter({
   className,
   style,
   brandName = "VellutoDeParfum",
-  brandTagline = "A modern house of haute parfumerie",
+  brandTagline = "Современный дом высокой парфюмерии",
   brandStatement =
-  "VellutoDeParfum embodies timeless elegance and Italian craftsmanship. Each fragrance is created with rare raw materials and meticulous care, offering a refined sensory experience for those seeking authentic luxury.",
+  "VellutoDeParfum воплощает вечную элегантность и итальянское мастерство. Каждый аромат создается с использованием редких сырьевых материалов и тщательным уходом, предлагая утонченный сенсорный опыт для тех, кто ищет подлинную роскошь.",
 }: PerfumeFooterProps) {
   return (
     <footer
@@ -56,7 +56,7 @@ export default function PerfumeFooter({
         {/* Copyright only */}
         <div className="mt-6 flex items-center justify-between text-sm text-muted-foreground">
           <p className="truncate">
-            © {new Date().getFullYear()} {brandName}. All rights reserved.
+            © {new Date().getFullYear()} {brandName}. Все права защищены.
           </p>
           {/* No footer links */}
         </div>
