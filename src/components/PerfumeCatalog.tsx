@@ -808,9 +808,7 @@ function ProductCard({ product }: { product: Product }) {
           {product.description}
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex items-center justify-between mt-auto">
-        <div className="text-sm text-muted-foreground">50 ml</div>
-      </CardContent>
+
     </Card>
   );
 }
